@@ -2,7 +2,7 @@ import { random } from "../../utils/utils";
 import "./style.css";
 import { useEffect } from "react";
 
-const MAX_STARS = 300;
+const MAX_STARS = 400;
 const ALPHA_STEP = 0.02
 
 export default function StarField() {
@@ -26,12 +26,16 @@ export default function StarField() {
     gradient2.addColorStop(1, "transparent");
     ctx2.fillStyle = gradient2;
     ctx2.beginPath();
-    ctx2.arc(half, half, half, 0, Math.PI * 2);
+    ctx2.moveTo(50,0)
+    ctx2.quadraticCurveTo(40,60,100,50)
+    ctx2.quadraticCurveTo(40,40,50,100)
+    ctx2.quadraticCurveTo(60,40,0,50)
+    ctx2.quadraticCurveTo(60,60,50,0)
     ctx2.fill();
     // End cache
 
     var Star = function () {
-      this.radius = random(5, 80);
+      this.radius = random(5, 50);
       this.orbitX = w / 2;
       this.orbitY = h / 2;
       this.timePassed = random(0, MAX_STARS);
