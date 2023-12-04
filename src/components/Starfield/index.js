@@ -34,6 +34,16 @@ export default function StarField() {
     starCtx.fill();
     // End cache
 
+    const mouse = {x: 0,y: 0}
+    const handleMouseMove = (e) => {
+      mouse.x = e.pageX
+      mouse.y = e.pageY
+    }
+    const handleMouseClick = (e) => {
+      console.log("click",mouse.x,mouse.y)
+    }
+    canvas.addEventListener("mousemove",handleMouseMove)
+    canvas.addEventListener("click",handleMouseClick)
     var Star = function () {
       this.radius = random(5, 50);
       this.angle = random(0,90)
